@@ -1,10 +1,9 @@
 import React from 'react'
+import Header from'../../TimerHeader/components/TimerHeader'
 
 const Timer = () => (
   <div className="container-fluid">
-    <div className="row">
-      <h2 className="text-center">Pomodoro Tech</h2>
-    </div>
+    <Header/>
     <div className="row">
       <h2 className="text-center">00:00</h2>
     </div>
