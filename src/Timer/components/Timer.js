@@ -1,16 +1,14 @@
 import React from 'react'
 import TimerHeader from'../../TimerHeader/components/TimerHeader'
 import TimerDisplay from'../../TimerDisplay/components/TimerDisplay'
+import TimerButton from'../../TimerButton/components/TimerButton'
 
 
 const Timer = () => (
   <div className="container-fluid">
     <TimerHeader/>
     <TimerDisplay/>
-    <div className='row'>
-      <br/>
-      <button className="btn btn-success center-block">Start</button>
-    </div>
+    <TimerButton/>
     <div className="row">
       <h2 className="text-primary">Set Timer</h2>
       <div className="row control-row">
