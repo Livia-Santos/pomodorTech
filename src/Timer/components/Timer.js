@@ -22,9 +22,13 @@ class Timer extends Component {
     return (
       <div className="container-fluid">
         <TimerHeader/>
-        <TimerDisplay currentTime={this.state.currentTime}/>
+        <TimerDisplay
+          currentTime={this.state.currentTime}
+        />
         <TimerButton/>
-        <TimerConfig/>
+        <TimerConfig
+          baseTime={this.state.baseTime}
+        />
       </div>
     );
   }
