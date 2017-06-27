@@ -4,6 +4,10 @@
   padding: 40px;
 }
 
+.control-row {
+  margin-bottom: 8px;
+}
+
 @media (max-width 650px) {
   .app-content {
     margin: 20px 20px 0;
