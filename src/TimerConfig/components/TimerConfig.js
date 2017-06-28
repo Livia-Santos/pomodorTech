@@ -19,7 +19,7 @@ const TimerConfig = (props) => (
           <label htmlFor="minutes">Minutes</label>
         </div>
         <div className="col-sm-9">
-          <input id= 'minutes' className="form-control" type="number" defaultValue={props.baseTime.get('minutes')} />
+          <input id='minutes' className="form-control" type="number" defaultValue={props.baseTime.get('minutes')} />
         </div>
       </div>
     </div>
