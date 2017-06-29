@@ -6,16 +6,19 @@ import TimerButton from'../../TimerButton/components/TimerButton'
 import TimerConfig from'../../TimerConfig/components/TimerConfig'
 
 class Timer extends Component {
-  constructor(){
-    super();
 
-    this.state = {
-      currentTime: moment.duration(25, 'minutes'),
-      baseTime: moment.duration(25, 'minutes'),
-    };
+  state = {
+    currentTime: moment.duration(25, 'minutes'),
+    baseTime: moment.duration(25, 'minutes')
   }
 
 
+  setBaseTime = (newBaseTime) => {
+    this.setState({
+      baseTime: newBaseTime,
+      currentTime: newBaseTime
+    });
+  }
 
   render ()
   {
@@ -27,7 +30,8 @@ class Timer extends Component {
         />
         <TimerButton/>
         <TimerConfig
-          baseTime={this.state.baseTime}
+          baseTime={ this.state.baseTime }
+          setBaseTime={this.setBaseTime}
         />
       </div>
     );
