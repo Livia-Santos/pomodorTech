@@ -70,7 +70,10 @@ class Timer extends Component {
   render = () => (
     <div className="container-fluid">
       <TimerHeader/>
-      <TimerDisplay currentTime={this.state.currentTime}/>
+      <TimerDisplay
+        currentTime={this.state.currentTime}
+        timerState={this.state.timerState}
+        />
       <TimerButton
         startTimer={this.startTimer}
         stopTimer={this.stopTimer}
