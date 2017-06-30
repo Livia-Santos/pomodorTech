@@ -30,7 +30,25 @@ class Timer extends Component {
     })
   }
 
+  stopTimer = () => {
+    if(this.state.timer) {
+      clearInterval (this.state.timer)
+    }
+    this.setState({
+      timerState: timerStates.NOT_SET,
+      timer: null,
+      currentTime: moment.duration(this.state.baseTime),
+    })
+  }
+
   reduceTimer = () => {
+    if (this.state.currentTime.get('hours') === 0
+        && this.state.currentTime.get('minutes') === 0
+        && this.state.currentTime.get('seconds') === 0) {
+      this.completeTimer();
+      return;
+      }
+
     const newTime = moment.duration(this.state.currentTime);
     newTime.subtract(1, 'second');
 
@@ -39,23 +57,35 @@ class Timer extends Component {
     });
   }
 
-  render ()
-  {
-    return (
-      <div className="container-fluid">
-        <TimerHeader/>
-        <TimerDisplay currentTime={this.state.currentTime}/>
-        <TimerButton startTimer={this.startTimer} timerState={this.state.timerState}/>
-        {
-          (this.state.timerState !== timerStates.RUNNING )
-          &&
-            <TimerConfig
-              baseTime={ this.state.baseTime }
-              setBaseTime={this.setBaseTime}
-          />
-        }
-      </div>
-    );
+  completeTimer = () => {
+    if(this.state.timer) {
+      clearInterval (this.state.timer)
+    }
+    this.setState({
+      timerState: timerStates.COMPLETE,
+      timer: null,
+    })
   }
+
+  render = () => (
+    <div className="container-fluid">
+      <TimerHeader/>
+      <TimerDisplay currentTime={this.state.currentTime}/>
+      <TimerButton
+        startTimer={this.startTimer}
+        stopTimer={this.stopTimer}
+        timerState={this.state.timerState}/>
+      {
+        (this.state.timerState !== timerStates.RUNNING )
+        &&
+          <TimerConfig
+            baseTime={ this.state.baseTime }
+            setBaseTime={this.setBaseTime}
+        />
+      }
+    </div>
+  )
+
 }
+
 export default Timer;
