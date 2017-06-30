@@ -44,10 +44,8 @@ class Timer extends Component {
     return (
       <div className="container-fluid">
         <TimerHeader/>
-        <TimerDisplay
-          currentTime={this.state.currentTime}
-        />
-        <TimerButton startTimer={this.startTimer}/>
+        <TimerDisplay currentTime={this.state.currentTime}/>
+        <TimerButton startTimer={this.startTimer} timerState={this.state.timerState}/>
         {
           (this.state.timerState !== timerStates.RUNNING )
           &&
