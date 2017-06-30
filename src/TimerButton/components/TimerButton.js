@@ -1,9 +1,9 @@
 import React from 'react';
 
-const TimerButton = () => (
+const TimerButton = (props) => (
   <div className='row'>
     <br/>
-    <button className="btn btn-success center-block">Start</button>
+    <button className="btn btn-success center-block" onClick={props.startTimer}>Start</button>
   </div>
 )
 
